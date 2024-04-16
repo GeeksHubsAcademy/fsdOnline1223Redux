@@ -1,8 +1,10 @@
 
 import { useState } from "react"
 import { CInput } from "../../common/CInput/CInput"
-import "./Login.css"
 import { CButton } from "../../common/CButton/CButton"
+import { loginBack } from "../../services/apiCalls"
+import { decodeToken } from "react-jwt"
+import "./Login.css"
 
 export const Login = () => {
 
@@ -15,12 +17,26 @@ export const Login = () => {
 
         setCredentials((prevState) => ({
             ...prevState,
-            [e.target.value] : e.target.name
+            [e.target.name] : e.target.value
         }))
     }
 
-    const loginMe = () => {
-        console.log("a")
+    const loginMe = async () => {
+
+        try {
+            const fetched = await loginBack(credentials)
+            const decodificado = decodeToken(fetched.token)
+
+            const passport = {
+                token : fetched.token,
+                user : decodificado
+            }
+
+            //...este passport es lo que nos interesa guardar en RDX
+
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (

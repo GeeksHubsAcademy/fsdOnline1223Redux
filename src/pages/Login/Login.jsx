@@ -6,7 +6,17 @@ import { loginBack } from "../../services/apiCalls"
 import { decodeToken } from "react-jwt"
 import "./Login.css"
 
+import { useDispatch, useSelector } from "react-redux"
+import { login, userData } from "../../app/slices/userSlice"
+
 export const Login = () => {
+
+    //Conexion a Redux en modo lectura
+    const rdxUserData = useSelector(userData)
+
+    //Conexion a Redux en modo escritura
+    const dispatch = useDispatch()
+
 
     const [credentials, setCredentials] = useState({
         email: "",
@@ -33,6 +43,9 @@ export const Login = () => {
             }
 
             //...este passport es lo que nos interesa guardar en RDX
+            dispatch(login({credentials: passport}))
+
+            
 
         } catch (error) {
             console.log(error)

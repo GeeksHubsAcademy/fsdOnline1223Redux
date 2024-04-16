@@ -23,3 +23,25 @@ export const loginBack = async (user) => {
     return error;
   }
 };
+
+export const bringCharacters = async () => {
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  try {
+    const response = await fetch(
+      `https://rickandmortyapi.com/api/character/?page=5`,
+      options
+    );
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    return error;
+  }
+};

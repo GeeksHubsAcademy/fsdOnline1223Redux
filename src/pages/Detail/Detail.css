@@ -1,0 +1,13 @@
+
+.detailDesign {
+
+    height: 86vh;
+    width: 100vw;
+
+    background-color: cadetblue;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

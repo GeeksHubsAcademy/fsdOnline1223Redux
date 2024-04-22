@@ -8,10 +8,12 @@ import storage from "redux-persist/lib/storage";
 
 import userSlice from "./slices/userSlice";
 import detailSlice from "./slices/detailSlice";
+import cartSlice from "./slices/cartSlice";
 
 const reducers = combineReducers({
   user: userSlice,
-  detail: detailSlice
+  detail: detailSlice,
+  cart: cartSlice
 });
 
 const persistConfig = {

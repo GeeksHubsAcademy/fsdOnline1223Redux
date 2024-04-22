@@ -23,3 +23,8 @@
     cursor: pointer;
 
 }
+
+.basketDesign {
+    display: flex;
+    flex-direction: row;
+}

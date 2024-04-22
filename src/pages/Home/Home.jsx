@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { add_details } from "../../app/slices/detailSlice";
 
 import { useNavigate } from "react-router-dom";
+import { add_cart } from "../../app/slices/cartSlice";
 
 export const Home = () => {
   //Instancio RDX en modo escritura
@@ -40,8 +41,16 @@ export const Home = () => {
         <div>
           {characters.map((character) => {
             return (
-              <div onClick={() => goToDetail(character)} key={character.id}>
-                {character.name}
+              <div className="designCharacter" key={character.id}>
+                <div onClick={() => goToDetail(character)}>
+                  {character.name}
+                </div>{" "}
+                <div
+                  className="plusDesign"
+                  onClick={() => dispatch(add_cart(character))}
+                >
+                  +
+                </div>
               </div>
             );
           })}

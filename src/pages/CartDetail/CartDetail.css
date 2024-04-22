@@ -1,0 +1,31 @@
+
+.cartDetailDesign {
+
+    height: 86vh;
+    width: 100vw;
+
+    background-color: cadetblue;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.emptyCartDesign {
+
+    height: 3em;
+    width: 25em;
+
+    border-radius: 1em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    color: white;
+    font-weight: bolder;
+
+    background-color: grey;
+}

@@ -10,7 +10,7 @@ export const cartSlice = createSlice({
       add_cart: (state, action) => {
         return {
           ...state,
-          ...action.payload
+          basket : [...state.basket, action.payload]
         }
       },
       remove_cart: (state, action) => {
